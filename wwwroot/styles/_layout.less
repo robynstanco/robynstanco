@@ -1,11 +1,11 @@
-@import "effects.less";
-@import "variables.less";
+@import "_mixins.less";
+@import "_variables.less";
 
 body, html {
-    height: 100%;
-    margin: 0;
-    font-family: 'Exo 2', sans-serif;
     color: @standardFontColor;
+    font-family: 'Exo 2', sans-serif;
+    margin: 0;
+    height: 100%;
 }
 
 a {
@@ -13,58 +13,60 @@ a {
 }
 
 h1, h2 {
-    text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
     margin-top: 0;
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: @largeFont;
     letter-spacing: 1px;
 }
 
 p {
-    font-size: 1.5em;
+    font-size: @mediumFont;
     margin-top: 0;
-    margin-bottom: 0;
 }
 
 .hero-image__container {
-    background-image: linear-gradient(@standardMainPaletteTransparent, @standardMainPaletteTransparent), url("../images/heroImage.jpg");
-    height: 33%;
-    min-height: 300px;
-    background-position: right;
+    background-image: url("../images/heroImage.jpg");
+    background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 33%;
+    min-height: 333px;
     position: relative;
 }
 
 .hero-image__info {
+    .fade-in();
     color: white;
     padding: @doubleStandardSpace;
-    .fade-in();
+
+    h1 {
+        text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+    }
 }
 
-.hero-image__navigation {
-    width: 100%;
-    position: absolute;
+.hero-image__navigation-container {
     bottom: 0;
+    position: absolute;
+    width: 100%;
 
-    .hero-image__navigation-container {
-        margin: 0;
-        padding: 0;
+    .hero-image__navigation-list {
         display: flex;
         justify-content: space-around;
+        margin: 0;
+        padding: 0;
         text-align: center;
 
         a {
-            text-decoration: none;
+            background-color: @standardLightPalette;
             color: @standardFontColor;
             flex: 0 0 28%;
+            font-size: 1.5em;
             height: 50px;
             line-height: 50px;
-            font-size: 1.5em;
-            background-color: @standardLightPalette;
             opacity: .75;
+            text-decoration: none;
 
             &:hover {
                 .hover();
@@ -87,9 +89,9 @@ p {
 
     p {
         img {
-            width: 150px;
-            margin-right: @standardSpace;
             margin-bottom: @standardSpace;
+            margin-right: @standardSpace;
+            width: 150px;
         }
     }
 }
@@ -101,13 +103,18 @@ p {
 }
 
 .github-item {
-    text-decoration: none;
-    color: @lightFontColor;
-    background-color: @standardDarkPalette;
-    padding: @standardSpace;
-    margin: @standardSpace;
-    flex: 0 0 40%;
     .hover-shadow();
+    background-color: @standardDarkPalette;
+    color: @lightFontColor;
+    flex: 0 0 40%;
+    margin: @standardSpace;
+    padding: @standardSpace;
+    text-decoration: none;
+
+    img {
+        height: 187px;
+        width: 333px;
+    }
 }
 
 .github-item__img, .github-item__desc{
@@ -115,17 +122,17 @@ p {
 }
 
 .github-item__desc {
-    margin-top: @standardSpace;
     margin-bottom: @standardSpace;
+    margin-top: @standardSpace;
     padding-left: @doubleStandardSpace;
     padding-right: @doubleStandardSpace;
 }
 
 footer {
-    text-align: center;
-    padding: @doubleStandardSpace;
-    color: white;
     background-color: @standardMainPalette;
+    color: white;
+    padding: @doubleStandardSpace;
+    text-align: center;
 }
 
 @media(max-width: 60em) {
@@ -140,15 +147,14 @@ footer {
     }
 
     h1 {
-        font-size: 2em;
+        font-size: @largeFontMobile;
     }
 
-    p, .hero-image__navigation .hero-image__navigation-container a {
-        font-size: 1em;
+    p, .hero-image__navigation-container .hero-image__navigation-list a {
+        font-size: @mediumFontMobile;
     }
 
     .hero-image__container {
-        height: 30%;
         max-height: unset;
     }
 
@@ -161,12 +167,17 @@ footer {
 
         p {
             img {
-                float: none;
                 display: block;
+                float: none;
+                margin-bottom: @standardSpace;
                 margin-left: auto;
                 margin-right: auto;
-                margin-bottom: @standardSpace;
             }
         }
+    }
+
+    .github-item img{
+        width: 200px;
+        height: 112px;
     }
 }
