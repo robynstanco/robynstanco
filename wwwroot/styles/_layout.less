@@ -43,6 +43,15 @@ p {
 
     h1 {
         text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+    } 
+}
+
+.email-me {
+    float:right;
+    width: 50px;
+
+    &:hover{
+        .hover-shadow();
     }
 }
 
@@ -103,6 +112,7 @@ p {
 }
 
 .github-item {
+    .box-shadow();
     .hover-shadow();
     background-color: @standardDarkPalette;
     color: @lightFontColor;
