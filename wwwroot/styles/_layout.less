@@ -40,13 +40,13 @@ p {
     .fade-in();
     color: white;
     padding: @doubleStandardSpace;
-
-    h1 {
-        text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
-    } 
 }
 
-.email-me {
+.hero-image__info-title {
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+} 
+
+.email-me__img {
     float:right;
     width: 50px;
 
@@ -55,45 +55,44 @@ p {
     }
 }
 
-.hero-image__navigation-container {
+.navigation__container {
     bottom: 0;
     position: absolute;
     width: 100%;
+}
 
-    .hero-image__navigation-list {
-        display: flex;
-        justify-content: space-around;
-        margin: 0;
-        padding: 0;
-        text-align: center;
+.navigation__list {
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
 
-        a {
-            background-color: @standardLightPalette;
-            color: @standardFontColor;
-            flex: 0 0 28%;
-            font-size: 1.5em;
-            height: 50px;
-            line-height: 50px;
-            opacity: .75;
-            text-decoration: none;
+.navigation__list-item  {
+    background-color: @standardLightPalette;
+    color: @standardFontColor;
+    flex: 0 0 28%;
+    font-size: 1.5em;
+    height: 50px;
+    line-height: 50px;
+    opacity: .75;
+    text-decoration: none;
 
-            &:hover {
-                .hover();
-            }
-        }
+    &:hover {
+        .hover();
     }
 }
 
-.main-content__about {
+.about-content__container {
     background-color: @standardDarkPalette;
 }
 
-.main-content__github {
+.github-content__container {
     background-color: @standardLightPalette;
 }
 
-
-.main-content__about, .main-content__github {
+.about-content__container, .github-content__container {
     padding: @doubleStandardSpace;
 
     p {
@@ -105,13 +104,13 @@ p {
     }
 }
 
-.github-list {
+.github-repo__container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-.github-item {
+.github-repo__item {
     .box-shadow();
     .hover-shadow();
     background-color: @standardDarkPalette;
@@ -127,11 +126,11 @@ p {
     }
 }
 
-.github-item__img, .github-item__desc{
+.github-repo__item-img, .github-repo__item-desc{
     text-align: center;
 }
 
-.github-item__desc {
+.github-repo__item-desc {
     margin-bottom: @standardSpace;
     margin-top: @standardSpace;
     padding-left: @doubleStandardSpace;
@@ -146,7 +145,7 @@ footer {
 }
 
 @media(max-width: 60em) {
-    .github-item {
+    .github-repo__item {
         flex: 0 0 90%;
     }
 }
@@ -160,7 +159,7 @@ footer {
         font-size: @largeFontMobile;
     }
 
-    p, .hero-image__navigation-container .hero-image__navigation-list a {
+    p, .navigation__container .navigation__list-item {
         font-size: @mediumFontMobile;
     }
 
@@ -172,7 +171,7 @@ footer {
         padding: @standardSpace;
     }
 
-    .main-content__about, .main-content__github, footer {
+    .about-content__container, .github-content__container, footer {
         padding: @standardSpace;
 
         p {
@@ -186,7 +185,7 @@ footer {
         }
     }
 
-    .github-item img{
+    .github-repo__item-img img {
         width: 200px;
         height: 112px;
     }
